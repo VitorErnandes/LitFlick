@@ -7,8 +7,7 @@ export default function TabTwoScreen() {
       <SafeAreaView style={styles.safeArea}>
         <StatusBar barStyle="dark-content" />
         <View style={styles.container}>
-          <Text style={styles.header}>Livros e Séries</Text>
-          <Text>Here have series</Text>
+          <Text style={styles.header}>Inicio</Text>
         </View >
       </SafeAreaView>
     </SafeAreaProvider>

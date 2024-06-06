@@ -15,7 +15,16 @@ export default function TabLayout() {
         headerShown: false,
       }}>
       <Tabs.Screen
-        name="books"
+        name="index"
+        options={{
+          title: 'Home',
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name={'home-outline'} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="books/index"
         options={{
           title: 'Books',
           tabBarIcon: ({ color }) => (
@@ -24,7 +33,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="series"
+        name="series/index"
         options={{
           title: 'Series',
           tabBarIcon: ({ color }) => (
