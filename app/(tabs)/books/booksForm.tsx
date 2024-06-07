@@ -1,26 +1,15 @@
 // app/components/BookSeriesList.js
 import React from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
-
-const data = [
-  { id: '1', title: 'Game of Thrones', type: 'Série' },
-  { id: '2', title: 'Breaking Bad', type: 'Série' },
-];
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const BookSeriesList = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Minhas séries</Text>
-      <FlatList
-        data={data}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.itemContainer}>
-            <Text style={styles.title}>{item.title}</Text>
-            <Text style={styles.type}>{item.type}</Text>
-          </View>
-        )}
-      />
+      <Text style={styles.header}>Cadastrar livro</Text>
+      
+      <TouchableOpacity style={styles.button} >
+        <Text style={styles.buttonText}>Adicionar Novo Livro</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -34,7 +23,8 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginTop: 20,
+    marginBottom: 10,
     color: '#333',
   },
   itemContainer: {
@@ -55,6 +45,18 @@ const styles = StyleSheet.create({
   type: {
     fontSize: 14,
     color: '#666',
+  },
+  button: {
+    backgroundColor: '#007bff',
+    padding: 15,
+    borderRadius: 5,
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 

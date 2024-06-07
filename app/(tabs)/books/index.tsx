@@ -1,16 +1,32 @@
-// app/components/BookSeriesList.js
 import React from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { useNavigation } from 'expo-router'; // Aqui estava o uso do expo-router
+import BookForm from './BookForm';
 
-const data = [
+interface Book {
+  id: string;
+  title: string;
+  type: string;
+}
+
+const data: Book[] = [
   { id: '1', title: 'O Senhor dos Anéis', type: 'Livro' },
-  { id: '2', title: 'Harry Potter', type: 'Livro' }
+  { id: '2', title: 'Game of Thrones', type: 'Série' },
+  { id: '3', title: 'Harry Potter', type: 'Livro' },
+  { id: '4', title: 'Breaking Bad', type: 'Série' },
 ];
 
 const BookSeriesList = () => {
+  // Use o useNavigation do expo-router
+  const navigation = useNavigation();
+
+  const navigateToForm = (book?: Book) => {
+    navigation.navigate('books/booksForm', { book: book });
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Livros e Séries</Text>
+      <Text style={styles.header}>Meus livros</Text>
       <FlatList
         data={data}
         keyExtractor={(item) => item.id}
@@ -21,6 +37,9 @@ const BookSeriesList = () => {
           </View>
         )}
       />
+      <TouchableOpacity style={styles.button} onPress={() => navigateToForm()}>
+        <Text style={styles.buttonText}>Adicionar Novo Livro</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -34,7 +53,8 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginTop: 20,
+    marginBottom: 10,
     color: '#333',
   },
   itemContainer: {
@@ -55,6 +75,18 @@ const styles = StyleSheet.create({
   type: {
     fontSize: 14,
     color: '#666',
+  },
+  button: {
+    backgroundColor: '#007bff',
+    padding: 15,
+    borderRadius: 5,
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 
