@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNavigation } from 'expo-router'; // Aqui estava o uso do expo-router
-import BookForm from './BookForm';
+import { useRouter } from 'expo-router';
 
 interface Book {
   id: string;
@@ -17,11 +16,10 @@ const data: Book[] = [
 ];
 
 const BookSeriesList = () => {
-  // Use o useNavigation do expo-router
-  const navigation = useNavigation();
+  const router = useRouter();
 
   const navigateToForm = (book?: Book) => {
-    navigation.navigate('books/booksForm', { book: book });
+    router.push('/books/booksForm', { book });
   };
 
   return (

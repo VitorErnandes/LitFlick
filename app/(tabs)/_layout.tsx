@@ -1,45 +1,19 @@
 import { Tabs } from 'expo-router';
-import React from 'react';
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function TabsLayout() {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-      }}>
+    <Tabs>
       <Tabs.Screen
         name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name={'home-outline'} color={color} />
-          ),
-        }}
+        options={{ title: 'Início', headerShown: false }}
       />
       <Tabs.Screen
-        name="books/index"
-        options={{
-          title: 'Books',
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name={'book-outline'} color={color} />
-          ),
-        }}
+        name="books"
+        options={{ title: 'Livros' }}
       />
       <Tabs.Screen
-        name="series/index"
-        options={{
-          title: 'Series',
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name={'play-outline'} color={color} />
-          ),
-        }}
+        name="series"
+        options={{ title: 'Séries' }}
       />
     </Tabs>
   );

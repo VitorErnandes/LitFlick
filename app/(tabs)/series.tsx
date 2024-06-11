@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function Home() {
+export default function Series() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Bem-vindo ao LitFlick!</Text>
+      <Text style={styles.text}>Lista de Séries</Text>
     </View>
   );
 }
